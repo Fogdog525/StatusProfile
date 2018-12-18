@@ -10,9 +10,12 @@
 #import "FDVideoItemViewModel.h"
 #import "SinaFile.h"
 #import "FDVideoModel.h"
+#import "FDStatusBottomView.h"
 @interface FDVideoCell()
 @property(strong,nonatomic)UIImageView *avatarImageView,*coverImageView;
 @property(strong,nonatomic)YYLabel *nameLabel,*timeLabel,*titleLabel;
+@property(strong,nonatomic)FDStatusBottomView *bottomView;
+@property(strong,nonatomic)UIView *bottom_segLine;
 @end
 @implementation FDVideoCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -23,6 +26,8 @@
         [self.contentView addSubview:self.timeLabel];
         [self.contentView addSubview:self.coverImageView];
         [self.contentView addSubview:self.titleLabel];
+        [self.contentView addSubview:self.bottomView];
+        [self.contentView addSubview:self.bottom_segLine];
     }
     return self;
 }
@@ -42,6 +47,22 @@
 
     self.titleLabel.textLayout = viewModel.titleLayout;
     self.titleLabel.frame = AAdaptionRect(kStatusCellTopMargin, CGRectGetMaxY(self.avatarImageView.frame) + 10, viewModel.titleLayout.textBoundingSize.width, viewModel.titleLayout.textBoundingSize.height);
+    
+    self.bottom_segLine.frame = AAdaptionRect(kStatusCellLeftMargin, CGRectGetMaxY(self.coverImageView.frame) + 10, kStatusTextWidth, 0.5);
+    self.bottomView.frame = AAdaptionRect(0, CGRectGetMaxY(self.bottom_segLine.frame) + 0.5, WIDTH, kStatusBottomBarHeight - 0.5);
+    [self.bottomView blindViewModel:viewModel];
+    
+}
+- (FDStatusBottomView *)bottomView{
+    if (!_bottomView) _bottomView = [[FDStatusBottomView alloc]init];
+    return _bottomView;
+}
+- (UIView *)bottom_segLine{
+    if (!_bottom_segLine) {
+        _bottom_segLine = [[UIView alloc]init];
+        _bottom_segLine.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    }
+    return _bottom_segLine;
 }
 - (YYLabel *)nameLabel{
     if (!_nameLabel) {

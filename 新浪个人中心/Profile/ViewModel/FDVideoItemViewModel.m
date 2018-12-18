@@ -14,6 +14,9 @@
 @property(nonatomic,readwrite)CGRect coverRect;
 @property(strong,nonatomic,readwrite)YYTextLayout *nameLayout;
 @property(strong,nonatomic,readwrite)YYTextLayout *timeLayout;
+@property(strong,nonatomic,readwrite)YYTextLayout *repostLayout;
+@property(strong,nonatomic,readwrite)YYTextLayout *commentLayout;
+@property(strong,nonatomic,readwrite)YYTextLayout *attitudesLayout;
 @property(assign,nonatomic,readwrite)CGFloat cellHieght;
 @end
 @implementation FDVideoItemViewModel
@@ -49,6 +52,8 @@
         _titleLayout = [YYTextLayout layoutWithContainer:titleContainer text:titleString];
         
         _coverRect = AAdaptionRect(kStatusCellTopMargin, 40 + 3 * kStatusCellTopMargin + _titleLayout.textBoundingSize.height, WIDTH - 2 * kStatusCellTopMargin, 180);
+        
+        [self configureBottomBarToolWithStatus:video];
     }
     return self;
 }
@@ -96,7 +101,24 @@
         }
     }];
 }
+- (void)configureBottomBarToolWithStatus:(FDVideoModel *)status{
+    
+    _repostLayout = [self configureBottomBatToolPartWithCount:status.reposts_count attachImageName:@"artical_detail_icon_repost"];
+    _commentLayout = [self configureBottomBatToolPartWithCount:status.comments_count attachImageName:@"commentlist_icon_comment"];
+    _attitudesLayout = [self configureBottomBatToolPartWithCount:status.attitudes_count attachImageName:@"commentlist_icon_unlike"];
+}
+- (YYTextLayout *)configureBottomBatToolPartWithCount:(NSNumber *)count attachImageName:(NSString *)imageName{
+    
+    NSMutableAttributedString *countSring = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@" %@",count]];
+    countSring.yy_font = AAFont(13);
+    countSring.yy_color = kStatusSourceTimeColor;
+    UIImage *attachImage = [UIImage imageNamed:imageName];
+    NSMutableAttributedString *attachAttribuatedString = [NSMutableAttributedString yy_attachmentStringWithContent:attachImage contentMode:UIViewContentModeCenter attachmentSize:attachImage.size alignToFont:AAFont(13) alignment:YYTextVerticalAlignmentCenter];
+    [attachAttribuatedString insertAttributedString:countSring atIndex:attachAttribuatedString.string.length];
+    YYTextContainer *container = [YYTextContainer containerWithSize:CGSizeMake(AAdaption(0.33 * WIDTH), CGFLOAT_MAX)];
+    return [YYTextLayout layoutWithContainer:container text:attachAttribuatedString];
+}
 - (CGFloat)cellHieght{
-    return 40 + kStatusCellTopMargin * 4 + _titleLayout.textBoundingSize.height + 180;
+    return 40 + kStatusCellTopMargin * 5 + _titleLayout.textBoundingSize.height + 180 + kStatusBottomBarHeight;
 }
 @end

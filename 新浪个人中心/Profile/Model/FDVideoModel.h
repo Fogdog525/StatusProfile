@@ -13,6 +13,9 @@
 @property(copy,nonatomic)NSString  *text;
 @property(strong,nonatomic)FDUser  *user;
 @property(strong,nonatomic)FDPic_info *page_info;
+@property(strong,nonatomic)NSNumber *reposts_count;
+@property(strong,nonatomic)NSNumber *comments_count;
+@property(strong,nonatomic)NSNumber *attitudes_count;
 @end
 
 @interface FDUser:NSObject

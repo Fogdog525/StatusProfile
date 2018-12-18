@@ -9,10 +9,24 @@
 #define KScreenWidth  [UIScreen mainScreen].bounds.size.width
 #import "FDWeiBoItemViewModel.h"
 #import "OCTEmoji.h"
+
+@interface FDWeiBoItemViewModel()
+@property(nonatomic,readwrite)CGFloat cellHeight;
+@property(strong,nonatomic,readwrite)FDPhotoViewModel *photoViewModel;
+@property(strong,nonatomic,readwrite)FDRetweetPhotoViewModel *retweetPhotoViewModel;
+@end
 @implementation FDWeiBoItemViewModel
 - (instancetype)initWithWeiBo:(FDWeiboModel *)weibo{
     if (self = [super init]) {
         [self layoutWithWeiBo:weibo];
+        BOOL isRetweetPhotoViewModelExit = (weibo.mblog.retweeted_status.pic_ids.count > 0);
+        if (isRetweetPhotoViewModelExit) {
+            self.photoViewModel = nil;
+            self.retweetPhotoViewModel = [[FDRetweetPhotoViewModel alloc]initWithStatus:weibo.mblog.retweeted_status];
+        }else{
+            self.retweetPhotoViewModel = nil;
+            self.photoViewModel = [[FDPhotoViewModel alloc]initWithStatus:weibo.mblog];
+        }
     }
     return self;
 }
@@ -21,13 +35,18 @@
     _weibo = weibo;
     [self configureNameLayoutAttribuatesWithWeibo:weibo];
     [self configureSourceLayoutAttribuatesWithWeibo:weibo];
-    _textLayout = [self configureTextLayoutAttribuatesWithWeibo:weibo isRetweet:NO];
+    _textLayout = [self configureTextLayoutAttribuatesWithWeibo:weibo.mblog isRetweet:NO];
     _textPartHeight = kStatusCellTopMargin + _textLayout.textBoundingSize.height;
+    if (weibo.mblog.retweeted_status) {
+        _retweetTextLayout = [self configureTextLayoutAttribuatesWithWeibo:weibo.mblog.retweeted_status isRetweet:YES];
+        _retweetTextPartHeight = kStatusCellTopMargin + _retweetTextLayout.textBoundingSize.height;
+    }
+    [self configureBottomBarToolWithStatus:weibo.mblog];
 }
-- (YYTextLayout *)configureTextLayoutAttribuatesWithWeibo:(FDWeiboModel *)weibo isRetweet:(BOOL)isRetweet{
+- (YYTextLayout *)configureTextLayoutAttribuatesWithWeibo:(FDWeiboContentModel *)weibo isRetweet:(BOOL)isRetweet{
     
-    if (!weibo.mblog.text.length) {return nil;}
-    NSMutableAttributedString *textAttribuatedString = [[NSMutableAttributedString alloc]initWithString:weibo.mblog.text];
+    if (!weibo.text.length) {return nil;}
+    NSMutableAttributedString *textAttribuatedString = [[NSMutableAttributedString alloc]initWithString:weibo.text];
     textAttribuatedString.yy_font = AAFont(isRetweet?kStatusNameFontSize:kStatusTextFontSize);
     textAttribuatedString.yy_color = [UIColor blackColor];
     textAttribuatedString.yy_lineSpacing = 5.f;
@@ -107,7 +126,25 @@
         }
     }];
 }
+- (void)configureBottomBarToolWithStatus:(FDWeiboContentModel *)status{
+    
+    _repostLayout = [self configureBottomBatToolPartWithCount:status.reposts_count attachImageName:@"artical_detail_icon_repost"];
+    _commentLayout = [self configureBottomBatToolPartWithCount:status.comments_count attachImageName:@"commentlist_icon_comment"];
+    _attitudesLayout = [self configureBottomBatToolPartWithCount:status.attitudes_count attachImageName:@"commentlist_icon_unlike"];
+}
+- (YYTextLayout *)configureBottomBatToolPartWithCount:(NSNumber *)count attachImageName:(NSString *)imageName{
+    
+    NSMutableAttributedString *countSring = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@" %@",count]];
+    countSring.yy_font = AAFont(13);
+    countSring.yy_color = kStatusSourceTimeColor;
+    UIImage *attachImage = [UIImage imageNamed:imageName];
+    NSMutableAttributedString *attachAttribuatedString = [NSMutableAttributedString yy_attachmentStringWithContent:attachImage contentMode:UIViewContentModeCenter attachmentSize:attachImage.size alignToFont:AAFont(13) alignment:YYTextVerticalAlignmentCenter];
+    [attachAttribuatedString insertAttributedString:countSring atIndex:attachAttribuatedString.string.length];
+    YYTextContainer *container = [YYTextContainer containerWithSize:CGSizeMake(AAdaption(0.33 * WIDTH), CGFLOAT_MAX)];
+    return [YYTextLayout layoutWithContainer:container text:attachAttribuatedString];
+}
+
 - (CGFloat)cellHeight{
-    return self.avatarPartHeight + self.textPartHeight + kStatusCellTopMargin;
+     return self.avatarPartHeight + self.textPartHeight + kStatusCellTopMargin + (self.photoViewModel.photoHeight + self.retweetPhotoViewModel.photoHeight + kStatusCellTopMargin) + self.retweetTextPartHeight + kStatusBottomBarHeight;
 }
 @end

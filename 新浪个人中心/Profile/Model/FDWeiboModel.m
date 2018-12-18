@@ -26,9 +26,22 @@ static NSDate *fmtWithDateString(NSString *timeString){
 - (NSString *)created_at{
     return [NSString oct_stringWithTimeLineDate:fmtWithDateString(_created_at)];
 }
++ (NSDictionary *)modelContainerPropertyGenericClass{
+    return @{@"pic_focus_point":[FDPic_Focus_PointsModel class]};
+}
 @end
 
 @implementation FDWeiboUserModel
+
+@end
+
+@implementation FDPic_Focus_PointsModel
+
+@end
+@implementation FDPicSizeModel
+
+@end
+@implementation FDThumbnail
 
 @end
 

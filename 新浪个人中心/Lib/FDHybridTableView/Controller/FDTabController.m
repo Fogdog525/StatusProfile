@@ -78,7 +78,6 @@
 - (CGFloat)swipeTableViewOffsetAtIndex:(NSInteger)index{
     return [self tabY] - self.topInset - [self pageSwipeTableViewTopInsetAtIndex:index];
 }
-
 - (void)reloadData{
     
     [self reloadPage];

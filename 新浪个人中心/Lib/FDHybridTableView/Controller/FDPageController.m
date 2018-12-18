@@ -386,7 +386,7 @@ typedef NS_ENUM(NSInteger,FDPageScrollDirection){
     if (self.currentPageIndex != self.lastSelectedIndex) {
         [[self controllerAtIndex:self.lastSelectedIndex]endAppearanceTransition];
     }
-    if ([self.description respondsToSelector:@selector(pageViewController:didLeaveFromViewControlelr:toViewController:)]) {
+    if ([self.delegate respondsToSelector:@selector(pageViewController:didLeaveFromViewControlelr:toViewController:)]) {
         [self.delegate pageViewController:self didLeaveFromViewControlelr:[self controllerAtIndex:self.lastSelectedIndex] toViewController:[self controllerAtIndex:self.currentPageIndex]];
     }
 }

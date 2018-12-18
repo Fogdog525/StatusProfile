@@ -198,6 +198,11 @@
 		EFBDCAA221C8F34200C2289C /* TGRImageZoomAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCA9921C8F34200C2289C /* TGRImageZoomAnimationController.m */; };
 		EFBDCAA321C8F34200C2289C /* TGRImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFBDCA9A21C8F34200C2289C /* TGRImageViewController.xib */; };
 		EFBDCAA421C8F34200C2289C /* UIImage+AspectFit.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCA9B21C8F34200C2289C /* UIImage+AspectFit.m */; };
+		EFBDCAA721C8FD8900C2289C /* FDPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCAA621C8FD8900C2289C /* FDPhotoView.m */; };
+		EFBDCAAB21C90EE900C2289C /* FDPhotoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCAAA21C90EE900C2289C /* FDPhotoViewModel.m */; };
+		EFBDCAAE21C911E900C2289C /* FDRetweetPhotoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCAAD21C911E900C2289C /* FDRetweetPhotoViewModel.m */; };
+		EFBDCAB121C9132F00C2289C /* FDRetweetPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCAB021C9132F00C2289C /* FDRetweetPhotoView.m */; };
+		EFBDCAB421C917FD00C2289C /* FDStatusBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCAB321C917FD00C2289C /* FDStatusBottomView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -445,6 +450,17 @@
 		EFBDCA9C21C8F34200C2289C /* TGRImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGRImageViewController.h; sourceTree = "<group>"; };
 		EFBDCA9D21C8F34200C2289C /* UIImage+AspectFit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AspectFit.h"; sourceTree = "<group>"; };
 		EFBDCA9E21C8F34200C2289C /* TGRImageZoomAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGRImageZoomAnimationController.h; sourceTree = "<group>"; };
+		EFBDCAA521C8FD8900C2289C /* FDPhotoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDPhotoView.h; sourceTree = "<group>"; };
+		EFBDCAA621C8FD8900C2289C /* FDPhotoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDPhotoView.m; sourceTree = "<group>"; };
+		EFBDCAA821C8FDA000C2289C /* FDReactive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDReactive.h; sourceTree = "<group>"; };
+		EFBDCAA921C90EE900C2289C /* FDPhotoViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDPhotoViewModel.h; sourceTree = "<group>"; };
+		EFBDCAAA21C90EE900C2289C /* FDPhotoViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDPhotoViewModel.m; sourceTree = "<group>"; };
+		EFBDCAAC21C911E900C2289C /* FDRetweetPhotoViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRetweetPhotoViewModel.h; sourceTree = "<group>"; };
+		EFBDCAAD21C911E900C2289C /* FDRetweetPhotoViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDRetweetPhotoViewModel.m; sourceTree = "<group>"; };
+		EFBDCAAF21C9132F00C2289C /* FDRetweetPhotoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRetweetPhotoView.h; sourceTree = "<group>"; };
+		EFBDCAB021C9132F00C2289C /* FDRetweetPhotoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDRetweetPhotoView.m; sourceTree = "<group>"; };
+		EFBDCAB221C917FD00C2289C /* FDStatusBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDStatusBottomView.h; sourceTree = "<group>"; };
+		EFBDCAB321C917FD00C2289C /* FDStatusBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDStatusBottomView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -668,6 +684,7 @@
 				EF24012D21C62489001242D9 /* SinaFile.h */,
 				05018B9021C7564E00EC9403 /* FDFetchData.h */,
 				05018B9121C7564E00EC9403 /* FDFetchData.m */,
+				EFBDCAA821C8FDA000C2289C /* FDReactive.h */,
 				EF01242E21C7E0170037917B /* Until */,
 				EF24013B21C636D7001242D9 /* Category */,
 				EF24010021C60165001242D9 /* Lib */,
@@ -747,6 +764,10 @@
 				EFBDCA8321C89D8000C2289C /* FDVideoViewModel.m */,
 				EFBDCA8821C8A5D700C2289C /* FDVideoItemViewModel.h */,
 				EFBDCA8921C8A5D700C2289C /* FDVideoItemViewModel.m */,
+				EFBDCAA921C90EE900C2289C /* FDPhotoViewModel.h */,
+				EFBDCAAA21C90EE900C2289C /* FDPhotoViewModel.m */,
+				EFBDCAAC21C911E900C2289C /* FDRetweetPhotoViewModel.h */,
+				EFBDCAAD21C911E900C2289C /* FDRetweetPhotoViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -762,6 +783,12 @@
 				EFBDCA8C21C8A70C00C2289C /* FDVideoCell.m */,
 				EFBDCA8E21C8C36500C2289C /* FDAlbumHeader.h */,
 				EFBDCA8F21C8C36500C2289C /* FDAlbumHeader.m */,
+				EFBDCAA521C8FD8900C2289C /* FDPhotoView.h */,
+				EFBDCAA621C8FD8900C2289C /* FDPhotoView.m */,
+				EFBDCAAF21C9132F00C2289C /* FDRetweetPhotoView.h */,
+				EFBDCAB021C9132F00C2289C /* FDRetweetPhotoView.m */,
+				EFBDCAB221C917FD00C2289C /* FDStatusBottomView.h */,
+				EFBDCAB321C917FD00C2289C /* FDStatusBottomView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1125,6 +1152,7 @@
 				05018B8C21C753EC00EC9403 /* FDVideoViewController.m in Sources */,
 				05018B8621C753CD00EC9403 /* FDHomepageViewController.m in Sources */,
 				EF24011B21C601FE001242D9 /* FDPageController.m in Sources */,
+				EFBDCAB421C917FD00C2289C /* FDStatusBottomView.m in Sources */,
 				EF24012921C61381001242D9 /* FDHeadCoverView.m in Sources */,
 				EFBDCA8A21C8A5D700C2289C /* FDVideoItemViewModel.m in Sources */,
 				EF01254E21C7EB160037917B /* UIImage+OCTSupport.m in Sources */,
@@ -1140,6 +1168,7 @@
 				EF24012321C602AA001242D9 /* FDProfileViewController.m in Sources */,
 				05018B8921C753DC00EC9403 /* FDWeiBoViewController.m in Sources */,
 				05018BA121C77DFF00EC9403 /* FDWeiBoCell.m in Sources */,
+				EFBDCAAE21C911E900C2289C /* FDRetweetPhotoViewModel.m in Sources */,
 				EFBDCA8721C8A08000C2289C /* FDVideoModel.m in Sources */,
 				EFBDCAA421C8F34200C2289C /* UIImage+AspectFit.m in Sources */,
 				EF01243B21C7EA280037917B /* OCTEmoji.m in Sources */,
@@ -1148,6 +1177,7 @@
 				EF24013721C6287F001242D9 /* NSSet+HYBUnicodeReadable.m in Sources */,
 				EFBDCA8421C89D8000C2289C /* FDVideoViewModel.m in Sources */,
 				EF24013E21C636E4001242D9 /* UIImageView+ZJCornerRadiusHelperKit.m in Sources */,
+				EFBDCAB121C9132F00C2289C /* FDRetweetPhotoView.m in Sources */,
 				EFBDCAA121C8F34200C2289C /* TGRImageViewController.m in Sources */,
 				05018BA721C7979700EC9403 /* WRNavigationBar.m in Sources */,
 				05018BAB21C7A2A900EC9403 /* UIView+LYExtension.m in Sources */,
@@ -1158,9 +1188,11 @@
 				05018B8F21C753F600EC9403 /* FDAlbumViewController.m in Sources */,
 				EF24012C21C622F2001242D9 /* FDHeadCoverViewModel.m in Sources */,
 				EF24013521C6287F001242D9 /* NSArray+HYBUnicodeReadable.m in Sources */,
+				EFBDCAAB21C90EE900C2289C /* FDPhotoViewModel.m in Sources */,
 				EFBDCA8D21C8A70C00C2289C /* FDVideoCell.m in Sources */,
 				EF24011A21C601FE001242D9 /* FDCoverController.m in Sources */,
 				EF01243521C7E0790037917B /* OCTStatusConst.m in Sources */,
+				EFBDCAA721C8FD8900C2289C /* FDPhotoView.m in Sources */,
 				05018B9E21C772AE00EC9403 /* FDWeiBoItemViewModel.m in Sources */,
 				05018B9221C7564E00EC9403 /* FDFetchData.m in Sources */,
 				EF24013A21C628E7001242D9 /* FDHeadCoverModel.m in Sources */,

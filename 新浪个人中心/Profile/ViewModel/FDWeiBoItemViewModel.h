@@ -10,18 +10,23 @@
 #import <UIKit/UIKit.h>
 #import "SinaFile.h"
 #import "FDWeiboModel.h"
+#import "FDPhotoViewModel.h"
+#import "FDRetweetPhotoViewModel.h"
 @interface FDWeiBoItemViewModel : NSObject
 @property (nonatomic,strong,readonly)FDWeiboModel *weibo;
 - (instancetype)initWithWeiBo:(FDWeiboModel *)weibo;
-
-
 //layout
 @property(nonatomic)CGFloat avatarPartHeight;
-@property(assign,nonatomic)CGFloat textPartHeight;
-@property(assign,nonatomic)CGFloat retweetTextPartHeight;
-@property(nonatomic)CGFloat cellHeight;
+@property(nonatomic,readonly)CGFloat cellHeight;
 @property(strong,nonatomic)YYTextLayout *nameLayout;
 @property(strong,nonatomic)YYTextLayout *sourceTimeLayout;
 @property(strong,nonatomic)YYTextLayout *textLayout;
+@property(assign,nonatomic)CGFloat textPartHeight;
 @property(strong,nonatomic)YYTextLayout *retweetTextLayout;
+@property(assign,nonatomic)CGFloat retweetTextPartHeight;
+@property(strong,nonatomic)YYTextLayout *repostLayout;
+@property(strong,nonatomic)YYTextLayout *commentLayout;
+@property(strong,nonatomic)YYTextLayout *attitudesLayout;
+@property(strong,nonatomic,readonly)FDPhotoViewModel *photoViewModel;
+@property(strong,nonatomic,readonly)FDRetweetPhotoViewModel *retweetPhotoViewModel;
 @end

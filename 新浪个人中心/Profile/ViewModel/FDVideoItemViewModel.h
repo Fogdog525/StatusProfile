@@ -20,5 +20,8 @@
 @property(strong,nonatomic,readonly)YYTextLayout *nameLayout;
 @property(strong,nonatomic,readonly)YYTextLayout *timeLayout;
 @property(strong,nonatomic,readonly)YYTextLayout *titleLayout;
+@property(strong,nonatomic,readonly)YYTextLayout *repostLayout;
+@property(strong,nonatomic,readonly)YYTextLayout *commentLayout;
+@property(strong,nonatomic,readonly)YYTextLayout *attitudesLayout;
 @property(assign,nonatomic,readonly)CGFloat cellHieght;
 @end
