@@ -1,0 +1,38 @@
+PODS:
+  - Masonry (1.1.0)
+  - ReactiveObjC (3.1.0)
+  - RegexKitLite-NoWarning (1.1.0)
+  - SDWebImage (4.4.3):
+    - SDWebImage/Core (= 4.4.3)
+  - SDWebImage/Core (4.4.3)
+  - YYModel (1.0.4)
+  - YYText (1.0.7)
+
+DEPENDENCIES:
+  - Masonry
+  - ReactiveObjC
+  - RegexKitLite-NoWarning
+  - SDWebImage
+  - YYModel
+  - YYText
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Masonry
+    - ReactiveObjC
+    - RegexKitLite-NoWarning
+    - SDWebImage
+    - YYModel
+    - YYText
+
+SPEC CHECKSUMS:
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
+  RegexKitLite-NoWarning: 365d208f8187997e33d9de8baeddfc00728596d8
+  SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
+
+PODFILE CHECKSUM: 032b42bac43ca57084cbb2324e41c217f3b34c55
+
+COCOAPODS: 1.5.3
