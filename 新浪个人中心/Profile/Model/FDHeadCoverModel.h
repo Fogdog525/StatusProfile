@@ -18,7 +18,7 @@
 @end
 
 @interface FDUserInfo:NSObject
-@property(copy,nonatomic)NSString  *profile_image_url;
+@property(copy,nonatomic)NSString  *avatar_large;
 @property(copy,nonatomic)NSString  *screen_name;
 @property(strong,nonatomic)NSNumber  *friends_count;
 @property(strong,nonatomic)NSNumber  *followers_count;

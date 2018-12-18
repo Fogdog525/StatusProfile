@@ -8,7 +8,9 @@
 
 #import "FDHeadCoverView.h"
 #import "SinaFile.h"
-@interface FDHeadCoverView()
+#import "TGRImageViewController.h"
+#import "TGRImageZoomAnimationController.h"
+@interface FDHeadCoverView()<UIViewControllerTransitioningDelegate>
 @property(strong,nonatomic)UIImageView  *avatarImageView;
 @property(strong,nonatomic)UILabel  *nicknameLabel;
 @property(strong,nonatomic)UILabel  *friendsCountLabel;
@@ -64,7 +66,7 @@
 }
 - (void)setUser:(FDUserInfo *)user{
     
-    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url]];
+    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:user.avatar_large]];
     self.nicknameLabel.text = user.screen_name;
     self.friendsCountLabel.text = [NSString stringWithFormat:@"关注  %@",user.friends_count];
     self.fansCountLabel.text = [NSString stringWithFormat:@"粉丝  %@",user.followers_count];
@@ -109,17 +111,37 @@
 - (UIImageView *)avatarImageView{
     if (!_avatarImageView) {
         _avatarImageView = [[UIImageView alloc]init];
-        _avatarImageView.contentMode = UIViewContentModeScaleAspectFit;
+        _avatarImageView.contentMode = UIViewContentModeScaleAspectFill;
         [_avatarImageView zj_attachBorderWidth:1 color:[UIColor whiteColor]];
         [_avatarImageView zj_cornerRadiusRoundingRect];
         _avatarImageView.userInteractionEnabled = YES;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(gotoTap)];
-        [_avatarImageView addGestureRecognizer:tap];
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(gotoBrowseAvatar:)];
+        [_avatarImageView addGestureRecognizer:tapGestureRecognizer];
     }
     return _avatarImageView;
 }
-- (void)gotoTap{
-    NSLog(@"======");
+- (void)gotoBrowseAvatar:(UITapGestureRecognizer *)sender{
+   
+    UIImage *avatarImg = [(UIImageView *)sender.view image];
+    if (avatarImg){
+        
+        TGRImageViewController *viewController = [[TGRImageViewController alloc]initWithImage:avatarImg];
+        viewController.view.frame = CGRectMake(0, 0, WIDTH, HEIGHT);
+        viewController.transitioningDelegate = self;
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:viewController animated:YES completion:NULL];
+    }
+}
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source{
+    if([presented isKindOfClass:[TGRImageViewController class]]){
+        return [[TGRImageZoomAnimationController alloc]initWithReferenceImageView:self.avatarImageView];
+    }
+    return nil;
+}
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed{
+    if([dismissed isKindOfClass:[TGRImageViewController class]]){
+        return [[TGRImageZoomAnimationController alloc]initWithReferenceImageView:self.avatarImageView];
+    }
+    return nil;
 }
 
 @end

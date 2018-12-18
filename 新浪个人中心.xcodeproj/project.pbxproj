@@ -192,6 +192,12 @@
 		EFBDCA8D21C8A70C00C2289C /* FDVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCA8C21C8A70C00C2289C /* FDVideoCell.m */; };
 		EFBDCA9021C8C36500C2289C /* FDAlbumHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCA8F21C8C36500C2289C /* FDAlbumHeader.m */; };
 		EFBDCA9321C8DABE00C2289C /* UITableView+FDEmptySupport.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCA9221C8DABE00C2289C /* UITableView+FDEmptySupport.m */; };
+		EFBDCA9F21C8F34200C2289C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EFBDCA9521C8F34200C2289C /* LICENSE */; };
+		EFBDCAA021C8F34200C2289C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EFBDCA9621C8F34200C2289C /* README.md */; };
+		EFBDCAA121C8F34200C2289C /* TGRImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCA9821C8F34200C2289C /* TGRImageViewController.m */; };
+		EFBDCAA221C8F34200C2289C /* TGRImageZoomAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCA9921C8F34200C2289C /* TGRImageZoomAnimationController.m */; };
+		EFBDCAA321C8F34200C2289C /* TGRImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFBDCA9A21C8F34200C2289C /* TGRImageViewController.xib */; };
+		EFBDCAA421C8F34200C2289C /* UIImage+AspectFit.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCA9B21C8F34200C2289C /* UIImage+AspectFit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -430,6 +436,15 @@
 		EFBDCA8F21C8C36500C2289C /* FDAlbumHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAlbumHeader.m; sourceTree = "<group>"; };
 		EFBDCA9121C8DABE00C2289C /* UITableView+FDEmptySupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDEmptySupport.h"; sourceTree = "<group>"; };
 		EFBDCA9221C8DABE00C2289C /* UITableView+FDEmptySupport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDEmptySupport.m"; sourceTree = "<group>"; };
+		EFBDCA9521C8F34200C2289C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		EFBDCA9621C8F34200C2289C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EFBDCA9821C8F34200C2289C /* TGRImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGRImageViewController.m; sourceTree = "<group>"; };
+		EFBDCA9921C8F34200C2289C /* TGRImageZoomAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGRImageZoomAnimationController.m; sourceTree = "<group>"; };
+		EFBDCA9A21C8F34200C2289C /* TGRImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TGRImageViewController.xib; sourceTree = "<group>"; };
+		EFBDCA9B21C8F34200C2289C /* UIImage+AspectFit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AspectFit.m"; sourceTree = "<group>"; };
+		EFBDCA9C21C8F34200C2289C /* TGRImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGRImageViewController.h; sourceTree = "<group>"; };
+		EFBDCA9D21C8F34200C2289C /* UIImage+AspectFit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AspectFit.h"; sourceTree = "<group>"; };
+		EFBDCA9E21C8F34200C2289C /* TGRImageZoomAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGRImageZoomAnimationController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -694,6 +709,7 @@
 		EF24010021C60165001242D9 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				EFBDCA9421C8F34200C2289C /* Vertigo */,
 				05018BA221C7979700EC9403 /* WRNavigationBar */,
 				EF24012E21C6287F001242D9 /* HYBUnicodeReadable */,
 				EF24010521C601FE001242D9 /* FDHybridTableView */,
@@ -845,6 +861,30 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		EFBDCA9421C8F34200C2289C /* Vertigo */ = {
+			isa = PBXGroup;
+			children = (
+				EFBDCA9521C8F34200C2289C /* LICENSE */,
+				EFBDCA9621C8F34200C2289C /* README.md */,
+				EFBDCA9721C8F34200C2289C /* Vertigo */,
+			);
+			path = Vertigo;
+			sourceTree = "<group>";
+		};
+		EFBDCA9721C8F34200C2289C /* Vertigo */ = {
+			isa = PBXGroup;
+			children = (
+				EFBDCA9E21C8F34200C2289C /* TGRImageZoomAnimationController.h */,
+				EFBDCA9821C8F34200C2289C /* TGRImageViewController.m */,
+				EFBDCA9A21C8F34200C2289C /* TGRImageViewController.xib */,
+				EFBDCA9D21C8F34200C2289C /* UIImage+AspectFit.h */,
+				EFBDCA9B21C8F34200C2289C /* UIImage+AspectFit.m */,
+				EFBDCA9C21C8F34200C2289C /* TGRImageViewController.h */,
+				EFBDCA9921C8F34200C2289C /* TGRImageZoomAnimationController.m */,
+			);
+			path = Vertigo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -910,6 +950,7 @@
 				EF01252C21C7EA790037917B /* h_ok@3x.png in Resources */,
 				EF01252721C7EA790037917B /* lxh_qiuguanzhu.png in Resources */,
 				EF01253B21C7EA790037917B /* d_zuiyou@3x.png in Resources */,
+				EFBDCAA021C8F34200C2289C /* README.md in Resources */,
 				EF0124DD21C7EA790037917B /* d_haha@3x.png in Resources */,
 				EF01250521C7EA790037917B /* w_shachenbao@3x.png in Resources */,
 				EF01252521C7EA790037917B /* lxh_haoaio.png in Resources */,
@@ -997,6 +1038,7 @@
 				EF01252421C7EA790037917B /* d_chijing@3x.png in Resources */,
 				EF01250C21C7EA790037917B /* d_guzhang@3x.png in Resources */,
 				EF01253F21C7EA790037917B /* d_kun@3x.png in Resources */,
+				EFBDCA9F21C8F34200C2289C /* LICENSE in Resources */,
 				EF01254921C7EA790037917B /* o_weiguan@3x.png in Resources */,
 				EF01250A21C7EA790037917B /* d_haixiu@3x.png in Resources */,
 				EF01251F21C7EA790037917B /* d_yun@3x.png in Resources */,
@@ -1007,6 +1049,7 @@
 				EF0124D621C7EA790037917B /* d_yiwen@3x.png in Resources */,
 				EF0124CF21C7EA790037917B /* d_wu@3x.png in Resources */,
 				EF0124DF21C7EA790037917B /* f_meng@3x.png in Resources */,
+				EFBDCAA321C8F34200C2289C /* TGRImageViewController.xib in Resources */,
 				EF0124D121C7EA790037917B /* h_haha@3x.png in Resources */,
 				EF01250F21C7EA790037917B /* d_hehe@3x.png in Resources */,
 				EF0124EC21C7EA790037917B /* o_lazhu@3x.png in Resources */,
@@ -1098,11 +1141,14 @@
 				05018B8921C753DC00EC9403 /* FDWeiBoViewController.m in Sources */,
 				05018BA121C77DFF00EC9403 /* FDWeiBoCell.m in Sources */,
 				EFBDCA8721C8A08000C2289C /* FDVideoModel.m in Sources */,
+				EFBDCAA421C8F34200C2289C /* UIImage+AspectFit.m in Sources */,
 				EF01243B21C7EA280037917B /* OCTEmoji.m in Sources */,
 				05018BA821C7979700EC9403 /* WRCustomNavigationBar.m in Sources */,
+				EFBDCAA221C8F34200C2289C /* TGRImageZoomAnimationController.m in Sources */,
 				EF24013721C6287F001242D9 /* NSSet+HYBUnicodeReadable.m in Sources */,
 				EFBDCA8421C89D8000C2289C /* FDVideoViewModel.m in Sources */,
 				EF24013E21C636E4001242D9 /* UIImageView+ZJCornerRadiusHelperKit.m in Sources */,
+				EFBDCAA121C8F34200C2289C /* TGRImageViewController.m in Sources */,
 				05018BA721C7979700EC9403 /* WRNavigationBar.m in Sources */,
 				05018BAB21C7A2A900EC9403 /* UIView+LYExtension.m in Sources */,
 				EFBDCA9021C8C36500C2289C /* FDAlbumHeader.m in Sources */,
