@@ -38,12 +38,9 @@
         }
     }];
     RAC(self,dataSource) = RACObserve(self.viewModel, dataArray);
-    
-    //这里不建议采用: [self.view ly_showEmptyPageView];的方法来添加空的占位图，如果采用了则页面就不能拖动了
-    
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.dataSource.count > 0;
+    return self.dataSource.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     

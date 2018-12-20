@@ -13,12 +13,6 @@
 @property(strong,nonatomic,readwrite)FDUserInfo *user;
 @end
 @implementation FDHeadCoverViewModel
-- (instancetype)init{
-    if (self = [super init]) {
-        
-    }
-    return self;
-}
 - (RACCommand *)fetchHeadCoverDataCommand{
     if (!_fetchHeadCoverDataCommand) {
         @weakify(self);

@@ -45,10 +45,7 @@
         }].array;
     }];
 }
-- (void)refreshData{
-   
 
-}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.dataSource.count;
 }
